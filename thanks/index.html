@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Thank you · Paste2SSH</title>
+  <meta name="theme-color" content="#0d1117" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2" />
+  <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2" />
+  <link rel="stylesheet" href="/styles.css?v=19" />
+  <script
+    defer
+    data-website-id="dfid_6iDRUbRsPHQtEeW4TGu3i"
+    data-domain="paste2ssh.com"
+    src="https://datafa.st/js/script.js">
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <a href="/" class="brand" aria-label="Paste2SSH home">
+      <img class="brand-mark" src="/android-chrome-192x192.png?v=2" width="28" height="28" alt="" />
+      <span class="brand-text">Paste2SSH</span>
+    </a>
+    <nav aria-label="Primary">
+      <a href="/Paste2SSH-1.0.dmg" download data-fast-goal="download" class="nav-cta">Download</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="section">
+      <div class="container container--narrow" style="text-align:center;">
+        <p class="eyebrow">Thank you</p>
+        <h1>That genuinely means a lot.</h1>
+        <p class="dim" style="margin-left:auto;margin-right:auto;max-width:48ch;">
+          Your support helps me keep building small, free tools like Paste2SSH.
+          If you ever hit a rough edge or want a feature, just email
+          <a href="mailto:hello@paste2ssh.com" data-fast-goal="contact_click">hello@paste2ssh.com</a> — I read everything.
+        </p>
+        <p style="margin-top:28px;">
+          <a href="/" class="btn btn-primary">Back to Paste2SSH</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // "actually paid" goal — fires only when arriving from a completed Stripe payment
+    // (DataFast also records the revenue separately via the session_id).
+    window.datafast = window.datafast || function () { (window.datafast.q = window.datafast.q || []).push(arguments); };
+    var sid = new URLSearchParams(window.location.search).get('session_id');
+    if (sid && sid.indexOf('cs_') === 0) {
+      window.datafast('donation');
+    }
+  </script>
+</body>
+</html>
