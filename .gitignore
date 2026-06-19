@@ -1,2 +1,8 @@
 DEPLOY.md
 .DS_Store
+
+# Paste2SSH app build artifacts
+app/.build/
+app/Paste2SSH.app/
+app/Paste2SSH.dmg
+app/dmg-stage/
