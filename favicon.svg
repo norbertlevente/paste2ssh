@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Back square: dark blue, top-left, with breathing room -->
+  <rect x="5" y="5" width="40" height="40" rx="9" fill="#0E50CC"/>
+  <!-- Front square: light blue, bottom-right, overlapping -->
+  <rect x="19" y="19" width="40" height="40" rx="9" fill="#2BA1FA"/>
+  <!-- `>` chevron + underscore in white, comfortably inside the front -->
+  <g fill="none" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="32,28 46,39 32,50"/>
+    <line x1="34" y1="54" x2="45" y2="54"/>
+  </g>
+</svg>

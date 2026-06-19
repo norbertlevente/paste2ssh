@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Paste2SSH — Paste screenshots on your remote machine</title>
+  <meta name="description" content="Take a screenshot on your Mac and Paste2SSH uploads it to your SSH server, putting the remote path on your clipboard for Claude Code and Codex. Free." />
+  <meta name="theme-color" content="#0d1117" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2" />
+  <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2" />
+  <link rel="manifest" href="/site.webmanifest?v=2" />
+  <link rel="canonical" href="https://paste2ssh.com/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Paste2SSH" />
+  <meta property="og:url" content="https://paste2ssh.com/" />
+  <meta property="og:title" content="Paste your screenshots into Claude Code on your VPS" />
+  <meta property="og:description" content="A free Mac utility app. Take a screenshot and it uploads over SSH, dropping the remote path on your clipboard to paste." />
+  <meta property="og:image" content="https://paste2ssh.com/og.png?v=4" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Paste2SSH landing page with the app's Paste tab showing paste mode on" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Paste your screenshots into Claude Code on your VPS" />
+  <meta name="twitter:description" content="A free Mac utility app. Take a screenshot and it uploads over SSH, dropping the remote path on your clipboard to paste." />
+  <meta name="twitter:image" content="https://paste2ssh.com/og-twitter.png?v=4" />
+  <meta name="twitter:image:alt" content="Paste2SSH landing page with the app's Paste tab showing paste mode on" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Paste2SSH",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "macOS 14.0+",
+    "description": "Take a screenshot on your Mac and Paste2SSH ships it to your VPS over SSH, then swaps your clipboard for the remote path so you can paste it straight into your remote terminal.",
+    "url": "https://paste2ssh.com/",
+    "image": "https://paste2ssh.com/og.png",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Norbert Kiss",
+      "url": "https://norbertkiss.com"
+    }
+  }
+  </script>
+
+  <link rel="stylesheet" href="/styles.css?v=19" />
+  <script
+    defer
+    data-website-id="dfid_6iDRUbRsPHQtEeW4TGu3i"
+    data-domain="paste2ssh.com"
+    src="https://datafa.st/js/script.js">
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a href="#top" class="brand" aria-label="Paste2SSH home">
+      <img class="brand-mark" src="/android-chrome-192x192.png?v=2" width="28" height="28" alt="" />
+      <span class="brand-text">Paste2SSH</span>
+    </a>
+    <nav aria-label="Primary">
+      <a href="/Paste2SSH-1.0.dmg" download class="nav-cta">Download</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <h1>Paste screenshots on your remote machine.</h1>
+          <p class="subhead">
+            Paste your screenshots exactly like you would locally. Paste2SSH
+            uploads clipboard screenshots to your SSH server and copies the
+            remote file path, so Claude Code and Codex can actually see what
+            you see.
+          </p>
+          <div class="cta-row">
+            <a href="/Paste2SSH-1.0.dmg" download class="btn btn-primary">Download for Mac</a>
+          </div>
+          <p class="trust-line">Free · No cloud · No account · No telemetry</p>
+        </div>
+        <figure class="hero-shot">
+          <video width="1600" height="834" autoplay loop muted playsinline preload="auto"
+                  poster="/images/hero-poster.jpg?v=3"
+                  aria-label="Paste2SSH demo: copying a screenshot and pasting the remote path in a terminal">
+            <source src="/images/hero.mp4?v=3" type="video/mp4" />
+          </video>
+        </figure>
+        <p class="hero-support">If this saves you annoyance, <a href="https://donate.stripe.com/4gM9AU3gZ9hq04q5Pi6Zy02" rel="noopener" target="_blank">support this developer</a>.</p>
+      </div>
+    </section>
+
+    <!-- THE OLD WAY -->
+    <section class="section">
+      <div class="container container--narrow">
+        <p class="eyebrow">The old way</p>
+        <h2>You know the dance.</h2>
+        <p class="dim">
+          Your agent is brilliant, but it lives on a VPS and can't see the
+          button rendering wrong on your Mac. Every screenshot means:
+        </p>
+        <ol class="five-steps">
+          <li>Save the screenshot.</li>
+          <li><code>scp</code> it to the server.</li>
+          <li>Invent a filename that won't collide.</li>
+          <li>Copy the remote path.</li>
+          <li>Paste it into the agent.</li>
+        </ol>
+        <p class="pullquote">
+          None of it is hard. It's just enough friction that you skip the
+          screenshot and instead you type a paragraph to describe what the
+          agent could see in one glance.
+        </p>
+        <p class="dim">
+          Paste2SSH does steps one through four in the background. You just
+          hit ⌘V.
+        </p>
+      </div>
+    </section>
+
+    <!-- THE NEW WAY -->
+    <section class="section section--alt" id="how">
+      <div class="container">
+        <div class="how-grid">
+          <div>
+            <p class="eyebrow">The new way</p>
+            <h2>Paste. It's already there.</h2>
+            <p class="dim">
+              Paste2SSH sits in your menu bar and watches the clipboard. The
+              moment an image lands on it, the upload starts, using the SSH
+              config, keys, and ssh-agent you already have. By the time you
+              switch to the terminal, your clipboard holds the remote path.
+            </p>
+            <p>
+              <a href="#screens">All six screens ↓</a>
+            </p>
+          </div>
+
+          <div class="workflow" aria-label="Workflow">
+            <div class="workflow-step">
+              <span class="keycaps" aria-hidden="true"><kbd>⌘</kbd><kbd>⇧</kbd><kbd>4</kbd></span>
+              <strong>Take a screenshot</strong>
+            </div>
+            <div class="workflow-arrow" aria-hidden="true">↓</div>
+            <div class="workflow-step">
+              <span class="keycaps" aria-hidden="true"><kbd>⌘</kbd><kbd>V</kbd></span>
+              <strong>Press ⌘V in your terminal</strong>
+            </div>
+          </div>
+        </div>
+
+        <pre class="terminal" aria-label="Example Claude Code session">
+<span class="term-prompt">$</span> claude
+<span class="term-out">&gt;</span> Why does the layout break at 768px?
+<span class="term-out">&gt;</span> /root/.paste2ssh/screenshot-20260610-233316.png</pre>
+      </div>
+    </section>
+
+    <!-- INSIDE THE APP -->
+    <section class="section" id="screens">
+      <div class="container">
+        <p class="eyebrow shots-center">Inside the app</p>
+        <h2 class="shots-center">Six screens. Nothing to learn.</h2>
+
+        <div class="shots-grid">
+          <figure class="shot-card">
+            <img src="/images/paste-on.webp?v=1" width="960" height="984" loading="lazy" alt="Paste2SSH with paste mode on, one big power button" />
+            <figcaption>
+              <strong>On / off</strong>
+              One switch. On: every copied image ships. Off: the app does
+              nothing.
+            </figcaption>
+          </figure>
+          <figure class="shot-card">
+            <img src="/images/switch-host.webp?v=1" width="960" height="984" loading="lazy" alt="Host picker dropdown for switching the upload target" />
+            <figcaption>
+              <strong>Switch hosts</strong>
+              Change projects, change hosts. One click, here or in the menu
+              bar.
+            </figcaption>
+          </figure>
+          <figure class="shot-card">
+            <img src="/images/history.webp?v=1" width="960" height="984" loading="lazy" alt="Recent Paths overlay with previously uploaded screenshots" />
+            <figcaption>
+              <strong>Recent paths</strong>
+              Your last hundred uploads. Click to re-copy when the agent loses
+              context.
+            </figcaption>
+          </figure>
+          <figure class="shot-card">
+            <img src="/images/hosts.webp?v=1" width="960" height="984" loading="lazy" alt="The Hosts tab listing three saved remotes" />
+            <figcaption>
+              <strong>Hosts</strong>
+              Your <code>~/.ssh/config</code> is already loaded. You just pick
+              a host.
+            </figcaption>
+          </figure>
+          <figure class="shot-card">
+            <img src="/images/add-host.webp?v=1" width="960" height="984" loading="lazy" alt="Add a remote form with name, server, user, port, and folder fields" />
+            <figcaption>
+              <strong>Add a remote</strong>
+              Name, server, user, port, folder. Writes a normal
+              <code>Host</code> block to your SSH config.
+            </figcaption>
+          </figure>
+          <figure class="shot-card">
+            <img src="/images/settings.webp?v=1" width="960" height="984" loading="lazy" alt="Settings page with folder, filename pattern, cleanup, and connection test" />
+            <figcaption>
+              <strong>Settings</strong>
+              Folder, filename pattern, opt-in cleanup, connection test.
+              That's all of it.
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- DRAG & DROP -->
+    <section class="section" id="files">
+      <div class="container">
+        <p class="eyebrow shots-center">Not just screenshots</p>
+        <h2 class="shots-center">Drag in any file.</h2>
+        <p class="dim demo-lede">
+          Drop a PDF, a log, a CSV, a database dump, anything, onto the window.
+          It goes up to the same remote folder and the path lands on your
+          clipboard, ready to paste.
+        </p>
+        <figure class="demo-shot">
+          <video width="1280" height="706" autoplay loop muted playsinline preload="none"
+                  poster="/images/drag-drop-poster.jpg?v=1"
+                  aria-label="Dragging a document onto the Paste2SSH window; it uploads to the remote folder and copies the path">
+            <source src="/images/drag-drop.mp4?v=1" type="video/mp4" />
+          </video>
+        </figure>
+      </div>
+    </section>
+
+    <!-- PRIVACY -->
+    <section class="section section--alt">
+      <div class="container container--narrow">
+        <p class="eyebrow">Privacy</p>
+        <h2>I couldn't read your screenshots if I wanted to.</h2>
+        <p class="dim">
+          There's no Paste2SSH cloud. The app connects straight from your Mac
+          to your server and uploads the file. Nothing routes through me,
+          phones home, or gets counted.
+        </p>
+        <ul class="bullets">
+          <li>No cloud, no account, no subscription</li>
+          <li>No license key, no in-app payment check</li>
+          <li>No analytics, no telemetry</li>
+          <li>No image storage by me</li>
+        </ul>
+        <p class="dim small-note">
+          The only thing you can ever send me is the feedback form.
+        </p>
+      </div>
+    </section>
+
+    <!-- FOUNDER LETTER -->
+    <section class="section" id="letter">
+      <div class="container container--narrow">
+        <p class="eyebrow">A letter from the developer</p>
+        <h2>Why this exists.</h2>
+
+        <article class="letter">
+          <p>Hey—</p>
+
+          <p>I'm Norbert. Paste2SSH is the first Mac app I've ever shipped.</p>
+
+          <p>
+            I'm not a career Mac developer. I have an economics degree, I'm
+            finishing a master's in data science in Basel, and I properly
+            taught myself to code in 2024. This year I set myself a public
+            challenge: ship twelve tiny internet products in twelve months.
+            Paste2SSH is one of them.
+          </p>
+
+          <p>
+            Here's the honest origin. I run Claude Code on a Hetzner box, and
+            getting a screenshot over to it was just annoying enough that I
+            mostly didn't. I'd type out a description of the bug instead of
+            showing it. More work for me, worse input for the agent.
+          </p>
+
+          <p>
+            So I hacked together a command-line tool that could push images
+            over SSH. It helped, but toggling it on and off, and re-pointing
+            it at a different host every time I switched projects, was its own
+            little chore.
+          </p>
+
+          <p>
+            One weekend in June I turned it into a proper Mac app. I've used it
+            every day since, and I've stopped typing descriptions of things I
+            can just show.
+          </p>
+
+          <p>
+            Now I'm making it available to everyone.
+          </p>
+
+          <p>
+            It's free. It uses the SSH setup you already have. It uploads to
+            <em>your</em> server, never mine. There's no backend, no account,
+            no license check. Just the one thing, done well.
+          </p>
+
+          <p>
+            If it saves you real time and you feel like sending five dollars to
+            the person who built it, the button below does exactly that. No
+            obligation. The app is identical either way. But every $5 gets me
+            a step closer to building small useful things like this full-time.
+          </p>
+
+          <p>
+            If something doesn't fit your setup, write me at
+            <a href="mailto:hello@paste2ssh.com">hello@paste2ssh.com</a>. I
+            read everything.
+          </p>
+
+          <p class="letter-sign">— Norbert</p>
+
+          <p class="letter-ps">
+            <strong>P.S.</strong> Ten more of these are coming this year.
+            The list lives at
+            <a href="https://norbertkiss.com" rel="noopener">norbertkiss.com</a>.
+          </p>
+        </article>
+
+        <div class="cta-row letter-cta">
+          <a href="https://donate.stripe.com/4gM9AU3gZ9hq04q5Pi6Zy02" class="btn btn-primary" rel="noopener" target="_blank">Send $5</a>
+          <a href="/Paste2SSH-1.0.dmg" download class="btn btn-secondary">Just download it for free</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section--alt section--faq" id="faq">
+      <div class="container container--narrow">
+        <p class="eyebrow">Quick answers</p>
+        <h2>Before you ask.</h2>
+
+        <details>
+          <summary>Does it upload to a cloud?</summary>
+          <p>No. It uploads only to the SSH server you configured. Nothing routes through me.</p>
+        </details>
+
+        <details>
+          <summary>Does it work with Claude Code?</summary>
+          <p>Yes, that's why it exists. The screenshot lands where Claude Code runs; you paste the remote path and the agent reads the file.</p>
+        </details>
+
+        <details>
+          <summary>Does it work with Codex?</summary>
+          <p>Yes. Anything running on the remote that can read a file path works: Codex, Gemini CLI, aider, or your own scripts. Paste2SSH just gets the image onto the server and hands you the path.</p>
+        </details>
+
+        <details>
+          <summary>Does it use my existing SSH keys?</summary>
+          <p>Yes. Your keys, your ssh-agent, your <code>~/.ssh/config</code>. If you can <code>scp</code> from Terminal, Paste2SSH can use the same host.</p>
+        </details>
+
+        <details>
+          <summary>Is it really free?</summary>
+          <p>Yes. No license key, no account, no in-app payment check. The $5 button is optional support.</p>
+        </details>
+
+        <details>
+          <summary>Do I have to open the app every time?</summary>
+          <p>No. There's a menu bar icon: toggle paste mode, switch hosts, and re-copy the last path without opening the window.</p>
+        </details>
+
+        <details>
+          <summary>What if the SSH connection drops?</summary>
+          <p>The upload fails, you see the error, your clipboard is unchanged. Reconnect and try again.</p>
+        </details>
+
+        <details>
+          <summary>Will it pile up screenshots on my server forever?</summary>
+          <p>Only if you let it. Opt in to remote cleanup and pick a retention (7 to 90 days), scoped strictly to the folder you chose. Off by default.</p>
+        </details>
+
+        <details>
+          <summary>Something's not working. How do I report it?</summary>
+          <p>Open the Feedback tab in the app and send a quick note straight from there. It opens a short Google Form, so you don't need to dig up an email address or write a bug report. I read every one.</p>
+        </details>
+
+        <details>
+          <summary>Is it open source?</summary>
+          <p>Not yet, but I may open-source the core after the first round of feedback. For now, what matters is already true: no analytics inside the app, no backend, no account, no license check. And honestly, it's a simple app. You could build something like this in a weekend, especially if Claude gives Fable back. :)</p>
+        </details>
+
+        <details>
+          <summary>Windows or Linux?</summary>
+          <p>Not yet. Mac first, because that's the workflow I needed. Ask and I'll think about it.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="band">
+      <div class="container">
+        <h2>Know someone who lives in a remote terminal?</h2>
+        <p class="band-sub">Send them ten seconds that'll save them a hundred.</p>
+        <div class="cta-row band-cta">
+          <a href="/Paste2SSH-1.0.dmg" download class="btn btn-invert">Download for Mac</a>
+          <button type="button" class="btn btn-share" data-url="https://paste2ssh.com/" aria-label="Copy link to Paste2SSH">
+            <svg class="share-icon share-icon--copy" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <svg class="share-icon share-icon--check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <span class="share-label">Copy link</span>
+          </button>
+        </div>
+        <p class="band-meta">Free · 2.2 MB · macOS 14+</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-row">
+        <div>
+          <p class="footer-brand">
+            <img src="/android-chrome-192x192.png?v=2" width="18" height="18" alt="" />
+            Paste2SSH
+          </p>
+          <p class="dim">Made by <a href="https://norbertkiss.com" rel="noopener">Norbert Kiss</a> in Switzerland.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="/Paste2SSH-1.0.dmg" download>Download</a>
+          <a href="/changelog/">Changelog</a>
+          <a href="mailto:hello@paste2ssh.com">Contact</a>
+          <a href="https://norbertkiss.com" rel="noopener">norbertkiss.com</a>
+        </nav>
+      </div>
+      <p class="footer-bottom">No cloud. No account. Just SSH.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      function flash(el) {
+        el.classList.add('copied');
+        window.setTimeout(function () { el.classList.remove('copied'); }, 1600);
+      }
+
+      // Final CTA share button — native share sheet on mobile, copy link on desktop
+      var share = document.querySelector('.btn-share');
+      if (share) {
+        var url = share.getAttribute('data-url');
+        var label = share.querySelector('.share-label');
+        if (navigator.share) {
+          if (label) label.textContent = 'Share';
+          share.addEventListener('click', function () {
+            navigator.share({
+              title: 'Paste2SSH',
+              text: 'Paste screenshots straight onto your remote machine over SSH.',
+              url: url
+            }).catch(function () {});
+          });
+        } else if (navigator.clipboard) {
+          share.addEventListener('click', function () {
+            navigator.clipboard.writeText(url).then(function () {
+              if (label) label.textContent = 'Copied!';
+              flash(share);
+              window.setTimeout(function () { if (label) label.textContent = 'Copy link'; }, 1600);
+            });
+          });
+        }
+      }
+    })();
+  </script>
+</body>
+</html>
