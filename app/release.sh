@@ -33,6 +33,12 @@ fi
 echo "== Generating appcast over $DIST_DIR =="
 "$GEN_APPCAST" --download-url-prefix "$DOWNLOAD_PREFIX" "$DIST_DIR"
 
+# Point each update's "what's new" at the changelog so Sparkle's update prompt
+# shows release notes. (generate_appcast rewrites appcast.xml each run, so re-add.)
+/usr/bin/sed -i '' \
+  's#</sparkle:shortVersionString>#</sparkle:shortVersionString><sparkle:releaseNotesLink>https://paste2ssh.com/changelog/</sparkle:releaseNotesLink>#' \
+  "$DIST_DIR/appcast.xml"
+
 echo
 echo "Done. Publish to the site repo (paste2ssh.com) and push:"
 echo "  $DIST_DIR/appcast.xml"
