@@ -259,6 +259,26 @@ p { margin: 0 0 1em; color: var(--ink); }
   text-align: center;
 }
 
+/* Subtle "other OS" link under the hero CTA (Linux alpha). */
+.os-alt { margin: 12px 0 0; font-size: 0.875rem; }
+.os-alt a { color: var(--ink-2); border-bottom: 1px solid var(--rule); padding-bottom: 1px; }
+.os-alt a:hover { color: var(--ink); border-bottom-color: var(--ink-2); }
+
+/* Copy-paste command block (used on /linux). */
+.cmd {
+  margin: 16px 0;
+  padding: 14px 16px;
+  background: var(--surface-alt);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--ink);
+  overflow-x: auto;
+  white-space: pre;
+}
+
 .hero-shot {
   margin: clamp(40px, 5vw, 64px) auto 0;
   max-width: 1000px;

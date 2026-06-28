@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Paste2SSH for Linux (Alpha)</title>
+  <meta name="description" content="An early alpha build of Paste2SSH for Linux. Upload clipboard screenshots to your SSH server and paste the remote path — now on x86_64 Linux as an AppImage." />
+  <meta name="theme-color" content="#0d1117" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2" />
+  <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2" />
+  <link rel="manifest" href="/site.webmanifest?v=2" />
+  <link rel="canonical" href="https://paste2ssh.com/linux/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Paste2SSH" />
+  <meta property="og:url" content="https://paste2ssh.com/linux/" />
+  <meta property="og:title" content="Paste2SSH for Linux (Alpha)" />
+  <meta property="og:description" content="Early alpha build for x86_64 Linux. Download the AppImage, chmod +x, and run." />
+  <meta property="og:image" content="https://paste2ssh.com/og.png?v=4" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <link rel="stylesheet" href="/styles.css?v=20" />
+  <script
+    defer
+    data-website-id="dfid_6iDRUbRsPHQtEeW4TGu3i"
+    data-domain="paste2ssh.com"
+    src="https://datafa.st/js/script.js">
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a href="/" class="brand" aria-label="Paste2SSH home">
+      <img class="brand-mark" src="/android-chrome-192x192.png?v=2" width="28" height="28" alt="" />
+      <span class="brand-text">Paste2SSH</span>
+    </a>
+    <nav aria-label="Primary">
+      <a href="/Paste2SSH-1.1.2.dmg" download data-fast-goal="download" data-fast-goal-location="linux_nav" class="nav-cta">Download for Mac</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="section">
+      <div class="container container--narrow">
+        <p class="eyebrow">Linux · Alpha</p>
+        <h1>Paste2SSH for Linux</h1>
+        <p class="release-lead">
+          An early alpha build. The core works — copy a screenshot, it uploads to your
+          SSH server and swaps your clipboard for the remote path, same as the Mac app,
+          reading your <code>~/.ssh/config</code>. But it's young: expect rough edges,
+          and updates are manual for now. Bug reports are very welcome.
+        </p>
+
+        <div class="cta-row">
+          <a href="https://github.com/norbertlevente/paste2ssh-linux/releases/latest/download/Paste2SSH-x86_64.AppImage"
+             data-fast-goal="download_linux" data-fast-goal-location="linux_page"
+             rel="noopener" class="btn btn-primary">Download AppImage (alpha)</a>
+        </div>
+        <p class="trust-line">Free · x86_64 · ~78 MB · always the newest release</p>
+
+        <h2>Run it</h2>
+        <p>Make it executable and launch:</p>
+        <div class="cmd">chmod +x Paste2SSH-x86_64.AppImage
+./Paste2SSH-x86_64.AppImage</div>
+        <p>
+          No install, no package manager — it's a single self-contained file. If your
+          distro doesn't ship FUSE, run it without extraction like this:
+        </p>
+        <div class="cmd">./Paste2SSH-x86_64.AppImage --appimage-extract-and-run</div>
+        <p class="trust-line">Requires x86_64 Linux with a desktop environment (system-tray support recommended).</p>
+
+        <h2>Good to know</h2>
+        <ul class="bullets">
+          <li><strong>It's alpha.</strong> The Linux build passes its CI (upload over real SSH, headless boot, AppImage build), but it hasn't been battle-tested across distros — if something looks off, please tell us.</li>
+          <li><strong>No auto-update yet.</strong> Unlike the Mac app, it won't update itself. To get a newer build, re-download the AppImage from the <a href="https://github.com/norbertlevente/paste2ssh-linux/releases/latest" rel="noopener">releases page</a>.</li>
+          <li><strong>A couple of behaviors differ from macOS by design</strong> (e.g. remote cleanup of old uploads). Everything else mirrors the Mac feature set.</li>
+        </ul>
+
+        <h2>Found a bug?</h2>
+        <p>
+          The Linux version has its own repository. Please
+          <a href="https://github.com/norbertlevente/paste2ssh-linux/issues" data-fast-goal="linux_feedback_click" rel="noopener">open an issue on GitHub</a>
+          — include your distro, desktop environment, and what you expected. You can also
+          browse the <a href="https://github.com/norbertlevente/paste2ssh-linux" rel="noopener">source</a>.
+        </p>
+
+        <p class="trust-line" style="margin-top:28px;">
+          ← <a href="/">Back to Paste2SSH for macOS</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-row">
+        <div>
+          <p class="footer-brand">
+            <img src="/android-chrome-192x192.png?v=2" width="18" height="18" alt="" />
+            Paste2SSH
+          </p>
+          <p class="dim">Made by <a href="https://norbertkiss.com" data-fast-goal="norbertkiss_click" rel="noopener">Norbert Kiss</a> in Switzerland.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="/Paste2SSH-1.1.2.dmg" download data-fast-goal="download" data-fast-goal-location="linux_footer">Download for Mac</a>
+          <a href="/linux/">Linux (alpha)</a>
+          <a href="/changelog/">Changelog</a>
+          <a href="mailto:hello@paste2ssh.com" data-fast-goal="contact_click">Contact</a>
+        </nav>
+      </div>
+      <p class="footer-bottom">No cloud. No account. Just SSH.</p>
+    </div>
+  </footer>
+</body>
+</html>
