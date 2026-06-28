@@ -44,10 +44,19 @@ cp "$ROOT_DIR/Resources/Info.plist" "$APP_DIR/Contents/Info.plist"
 cp "$ROOT_DIR/Resources/AppIcon.icns" "$APP_DIR/Contents/Resources/AppIcon.icns"
 cp "$ROOT_DIR/Resources/MenuBarIcon.png" "$APP_DIR/Contents/Resources/MenuBarIcon.png"
 
+# Embed Sparkle.framework (auto-update) from the SwiftPM build products.
+if [ ! -d "$BIN_DIR/Sparkle.framework" ]; then
+  echo "ERROR: Sparkle.framework not found in $BIN_DIR" >&2
+  exit 1
+fi
+mkdir -p "$APP_DIR/Contents/Frameworks"
+cp -R "$BIN_DIR/Sparkle.framework" "$APP_DIR/Contents/Frameworks/Sparkle.framework"
+
 # --- Codesign -----------------------------------------------------------------
-# Hardened runtime is required for notarization. No --deep: this bundle has no
-# nested code, so signing the bundle seals its single executable correctly.
-# A secure timestamp is added for real (non-ad-hoc) identities.
+# Hardened runtime is required for notarization. Sparkle's framework + helpers are
+# re-signed inner-out (below) with our identity so they're same-team for library
+# validation, before the app bundle is signed last (no --deep). A secure timestamp
+# is added for real (non-ad-hoc) identities.
 CODESIGN_FLAGS=(--force --options runtime
                 --entitlements "$ENTITLEMENTS"
                 --identifier "$BUNDLE_ID")
@@ -58,8 +67,25 @@ else
   echo "Signing ad-hoc (set P2SS_SIGN_IDENTITY for a notarizable release)"
 fi
 
+# Sign Sparkle inner-out: each nested executable keeps its own bundle id and gets
+# hardened runtime, but not the app's entitlements/identifier.
+SPARKLE_FW="$APP_DIR/Contents/Frameworks/Sparkle.framework"
+SPARKLE_V="$SPARKLE_FW/Versions/B"
+SPARKLE_FLAGS=(--force --options runtime)
+if [ "$SIGN_IDENTITY" != "-" ]; then
+  SPARKLE_FLAGS+=(--timestamp)
+fi
+for COMPONENT in \
+  "$SPARKLE_V/XPCServices/Installer.xpc" \
+  "$SPARKLE_V/XPCServices/Downloader.xpc" \
+  "$SPARKLE_V/Updater.app" \
+  "$SPARKLE_V/Autoupdate" \
+  "$SPARKLE_FW"; do
+  /usr/bin/codesign "${SPARKLE_FLAGS[@]}" --sign "$SIGN_IDENTITY" "$COMPONENT"
+done
+
 /usr/bin/codesign "${CODESIGN_FLAGS[@]}" --sign "$SIGN_IDENTITY" "$APP_DIR"
-/usr/bin/codesign --verify --strict --verbose=2 "$APP_DIR"
+/usr/bin/codesign --verify --deep --strict --verbose=2 "$APP_DIR"
 
 # --- Notarize + staple the app ------------------------------------------------
 if [ "$SIGN_IDENTITY" != "-" ] && [ -n "$NOTARY_PROFILE" ]; then

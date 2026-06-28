@@ -69,6 +69,11 @@ struct MenuBarContent: View {
                 AppController.shared.showSettingsWindow()
             }
 
+            Button("Check for Updates...") {
+                AppController.shared.updater.checkForUpdates()
+            }
+            .disabled(!AppController.shared.updater.canCheckForUpdates)
+
             Button("Quit") {
                 NSApp.terminate(nil)
             }

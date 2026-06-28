@@ -91,6 +91,7 @@ final class AppController {
     static let shared = AppController()
 
     let state = AppState()
+    let updater = Updater()
     private var mainWindow: NSWindow?
 
     private init() {}

@@ -909,6 +909,9 @@ private struct HostEditorPanel: View {
 private struct SettingsPage: View {
     @Bindable var state: AppState
     private let fieldColumnWidth: CGFloat = 240
+    private var appVersion: String {
+        Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "—"
+    }
 
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -953,6 +956,17 @@ private struct SettingsPage: View {
                         .labelsHidden()
                         .toggleStyle(.switch)
                         .tint(.green)
+                        .pointingCursor()
+                        .frame(width: fieldColumnWidth, alignment: .trailing)
+                    }
+
+                    Divider().overlay(Color.white.opacity(0.10))
+
+                    settingRow(title: "Version \(appVersion)") {
+                        Button("Check for Updates") {
+                            AppController.shared.updater.checkForUpdates()
+                        }
+                        .disabled(!AppController.shared.updater.canCheckForUpdates)
                         .pointingCursor()
                         .frame(width: fieldColumnWidth, alignment: .trailing)
                     }
