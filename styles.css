@@ -259,11 +259,6 @@ p { margin: 0 0 1em; color: var(--ink); }
   text-align: center;
 }
 
-/* Subtle "other OS" link under the hero CTA (Linux alpha). */
-.os-alt { margin: 12px 0 0; font-size: 0.875rem; }
-.os-alt a { color: var(--ink-2); border-bottom: 1px solid var(--rule); padding-bottom: 1px; }
-.os-alt a:hover { color: var(--ink); border-bottom-color: var(--ink-2); }
-
 /* Copy-paste command block (used on /linux). */
 .cmd {
   margin: 16px 0;
@@ -278,6 +273,14 @@ p { margin: 0 0 1em; color: var(--ink); }
   overflow-x: auto;
   white-space: pre;
 }
+
+/* /linux page: bare h2/p in a narrow column need real vertical rhythm,
+   since base headings have no top margin and .release-lead has none. */
+.linux-doc .cta-row { margin-top: 26px; }
+.linux-doc h2 { margin-top: 2.6rem; }
+.linux-doc .cmd + p { margin-top: 1.25rem; }
+.linux-doc ul.bullets { margin-top: 1.1rem; }
+.linux-doc h2 + p { margin-bottom: 1.1rem; }
 
 .hero-shot {
   margin: clamp(40px, 5vw, 64px) auto 0;
