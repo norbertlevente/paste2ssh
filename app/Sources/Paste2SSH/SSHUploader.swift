@@ -29,8 +29,6 @@ enum SSHUploaderError: LocalizedError {
 actor SSHUploader {
     private var cachedHome: [String: String] = [:]
     private var ensuredDirs: Set<String> = []
-    private var controlDir: URL?
-    private var controlDirResolved = false
 
     func upload(localURL: URL, filename: String, settings: Settings) async throws -> UploadResult {
         guard !settings.normalizedHost.isEmpty else {
@@ -234,14 +232,14 @@ actor SSHUploader {
         }
     }
 
-    /// Private, app-owned dir for SSH ControlMaster sockets. Kept short (under
-    /// ~/Library/Caches) so socket paths stay within the ~104-char unix limit;
-    /// 0700 perms because ssh refuses world-writable ControlPath dirs.
+    /// Private, app-owned dir for SSH ControlMaster sockets. Re-created on every use
+    /// (createDirectory is a no-op when it already exists): macOS can purge
+    /// ~/Library/Caches at any time, and if we only created it once per launch a
+    /// purge would make every ssh/scp fail the socket bind with "No such file or
+    /// directory" until the app restarted. Kept short (under Caches) for the
+    /// ~104-char unix-socket path limit; 0700 because ssh refuses world-writable
+    /// ControlPath dirs.
     private func controlSocketDirectory() -> URL? {
-        if controlDirResolved {
-            return controlDir
-        }
-        controlDirResolved = true
         let dir = FileManager.default.homeDirectoryForCurrentUser
             .appendingPathComponent("Library/Caches/Paste2SSH/cm", isDirectory: true)
         do {
@@ -250,11 +248,10 @@ actor SSHUploader {
                 withIntermediateDirectories: true,
                 attributes: [.posixPermissions: 0o700]
             )
-            controlDir = dir
+            return dir
         } catch {
-            controlDir = nil
+            return nil
         }
-        return controlDir
     }
 
     /// Connection-multiplexing options shared by ssh and scp. We compute a short
@@ -366,6 +363,12 @@ actor SSHUploader {
             .first
             .map(String.init) ?? "No error output."
 
+        if lower.contains("unix_listener") || lower.contains("mux_client") || lower.contains("control socket") || lower.contains("controlpath") {
+            // Local connection-multiplexing failure (e.g. the ControlPath socket dir
+            // was purged). Prints "No such file or directory" but is unrelated to the
+            // remote folder — must be caught before the "not writable" branch.
+            return "Local SSH connection setup failed. Please try again."
+        }
         if lower.contains("remote host identification has changed") || lower.contains("possible dns spoofing") {
             return "The host key changed since you last connected. If you trust this host, run ssh-keygen -R for it in Terminal, then reconnect."
         }
@@ -405,14 +408,14 @@ actor SSHUploader {
         if lower.contains("missing operand") {
             return "Could not create the remote upload folder."
         }
-        if lower.contains("no such file") || lower.contains("not writable") || lower.contains("permission denied") {
+        if lower.contains("not writable") || lower.contains("read-only file system") || lower.contains("cannot create directory") {
             return "The remote upload directory is not writable."
         }
         if lower.contains("subsystem") || lower.contains("protocol") || lower.contains("expand-path") {
             return "SFTP upload failed. Check that the server supports SFTP."
         }
-        if lower.contains("connection reset") || lower.contains("connection lost") {
-            return "SSH connection was interrupted."
+        if lower.contains("connection reset") || lower.contains("connection lost") || lower.contains("broken pipe") || lower.contains("client_loop") {
+            return "The SSH connection dropped. Check your network or VPN (e.g. Tailscale), then try again."
         }
 
         return "SSH error (code \(status)): \(firstLine)"
