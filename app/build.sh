@@ -57,11 +57,13 @@ cp -R "$BIN_DIR/Sparkle.framework" "$APP_DIR/Contents/Frameworks/Sparkle.framewo
 # re-signed inner-out (below) with our identity so they're same-team for library
 # validation, before the app bundle is signed last (no --deep). A secure timestamp
 # is added for real (non-ad-hoc) identities.
-CODESIGN_FLAGS=(--force --options runtime
+CODESIGN_FLAGS=(--force
                 --entitlements "$ENTITLEMENTS"
                 --identifier "$BUNDLE_ID")
 if [ "$SIGN_IDENTITY" != "-" ]; then
-  CODESIGN_FLAGS+=(--timestamp)
+  # Hardened runtime (required for notarization) only for real identities. Ad-hoc
+  # + hardened runtime fails library validation on the embedded Sparkle framework.
+  CODESIGN_FLAGS+=(--options runtime --timestamp)
   echo "Signing with: $SIGN_IDENTITY"
 else
   echo "Signing ad-hoc (set P2SS_SIGN_IDENTITY for a notarizable release)"
@@ -71,9 +73,9 @@ fi
 # hardened runtime, but not the app's entitlements/identifier.
 SPARKLE_FW="$APP_DIR/Contents/Frameworks/Sparkle.framework"
 SPARKLE_V="$SPARKLE_FW/Versions/B"
-SPARKLE_FLAGS=(--force --options runtime)
+SPARKLE_FLAGS=(--force)
 if [ "$SIGN_IDENTITY" != "-" ]; then
-  SPARKLE_FLAGS+=(--timestamp)
+  SPARKLE_FLAGS+=(--options runtime --timestamp)
 fi
 for COMPONENT in \
   "$SPARKLE_V/XPCServices/Installer.xpc" \

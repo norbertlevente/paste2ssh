@@ -3,6 +3,34 @@
     <channel>
         <title>Paste2SSH</title>
         <item>
+            <title>1.1.2</title>
+            <pubDate>Sun, 28 Jun 2026 19:19:09 +0200</pubDate>
+            <sparkle:fullReleaseNotesLink>https://paste2ssh.com/changelog/</sparkle:fullReleaseNotesLink>
+            <sparkle:version>5</sparkle:version>
+            <sparkle:shortVersionString>1.1.2</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description><![CDATA[<style>
+  :root { color-scheme: light dark; }
+  .notes { font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif; font-size: 13px; line-height: 1.55; padding: 2px; }
+  .notes h2 { font-size: 15px; font-weight: 600; margin: 0 0 8px; }
+  .notes ul { margin: 0; padding-left: 18px; }
+  .notes li { margin-bottom: 6px; }
+</style>
+<div class="notes">
+  <h2>Version 1.1.2</h2>
+  <ul>
+    <li>An “Update available” card now appears in the sidebar when a new version is ready, so you don’t have to check manually. It matches the app’s colors.</li>
+  </ul>
+</div>
+]]></description>
+            <enclosure url="https://paste2ssh.com/Paste2SSH-1.1.2.dmg" length="1735917" type="application/octet-stream" sparkle:edSignature="fdOM5y9Lq6z6w9rlt1Nj8OeaLO+q696S6LH8fkHVIkFe9ArG4AU7log+/bMGZm5vw0diN3161FdW5wO+TRvADg=="/>
+            <sparkle:deltas>
+                <enclosure url="https://paste2ssh.com/Paste2SSH5-4.delta" sparkle:deltaFrom="4" length="103298" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977808" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="5z9Awxt1VBHW9GSDEBnA0FvgOnPC1ZZ4TrmHJFEzv5flTIhzQifq5h05rUwZFpvflFQs60SnreGB3yWhAdGvDA=="/>
+                <enclosure url="https://paste2ssh.com/Paste2SSH5-3.delta" sparkle:deltaFrom="3" length="103482" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977808" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="roevNGSB6hUs74ykaR8Ij5DVsdNdFD2gZfyX1O/BJvp8KJTx6YbBfWlyM+88ZPxFnW1RmGtCZ2hsPBGoSkDHDg=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
             <title>1.1.1</title>
             <pubDate>Sun, 28 Jun 2026 18:31:43 +0200</pubDate>
             <sparkle:version>4</sparkle:version>

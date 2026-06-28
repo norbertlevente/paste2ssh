@@ -159,6 +159,13 @@ struct MainWindowView: View {
 
             Spacer()
 
+            if AppController.shared.updater.updateAvailable {
+                UpdateSidebarButton(phase: state.connectionPhase) {
+                    AppController.shared.updater.checkForUpdates()
+                }
+                .transition(.scale(scale: 0.85).combined(with: .opacity))
+            }
+
             SidebarButton(title: "Feedback", systemImage: "bubble.left.and.bubble.right", isSelected: state.selectedPage == .feedback) {
                 state.selectedPage = .feedback
                 state.activePanel = nil
@@ -172,6 +179,7 @@ struct MainWindowView: View {
         .padding(.bottom, 22)
         .frame(width: 86)
         .background(Color.black.opacity(0.20))
+        .animation(.spring(response: 0.32, dampingFraction: 0.8), value: AppController.shared.updater.updateAvailable)
     }
 
     @ViewBuilder
@@ -1668,6 +1676,53 @@ private struct HostMenuField: View {
         .menuStyle(.borderlessButton)
         .fixedSize()
         .pointingCursor()
+    }
+}
+
+private struct UpdateSidebarButton: View {
+    let phase: ConnectionPhase
+    let action: () -> Void
+    @State private var isHovered = false
+
+    var body: some View {
+        Button(action: action) {
+            VStack(spacing: 6) {
+                Image(systemName: "arrow.down.circle.fill")
+                    .font(.system(size: 22, weight: .semibold))
+                Text("Update")
+                    .font(.caption2.weight(.bold))
+            }
+            .foregroundStyle(.white)
+            .frame(width: 76, height: 62)
+            .background(
+                LinearGradient(colors: gradientColors, startPoint: .topLeading, endPoint: .bottomTrailing),
+                in: RoundedRectangle(cornerRadius: 14)
+            )
+            .overlay {
+                RoundedRectangle(cornerRadius: 14)
+                    .stroke(Color.white.opacity(0.18))
+            }
+            .shadow(color: accentColor.opacity(isHovered ? 0.42 : 0.26), radius: isHovered ? 14 : 9, y: 3)
+            .scaleEffect(isHovered ? 1.04 : 1.0)
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .help("A new version is available — click to update")
+        .animation(.easeInOut(duration: 0.14), value: isHovered)
+        .pointingCursor { isHovered = $0 }
+    }
+
+    // Match the app's mode colors: teal when Paste Mode is on, purple otherwise.
+    private var gradientColors: [Color] {
+        phase == .on
+            ? [Color(red: 0.30, green: 0.72, blue: 0.66), Color(red: 0.18, green: 0.42, blue: 0.58)]
+            : [Color(red: 0.56, green: 0.25, blue: 0.86), Color(red: 0.36, green: 0.24, blue: 0.68)]
+    }
+
+    private var accentColor: Color {
+        phase == .on
+            ? Color(red: 0.35, green: 0.86, blue: 0.78)
+            : Color(red: 0.72, green: 0.34, blue: 0.92)
     }
 }
 
