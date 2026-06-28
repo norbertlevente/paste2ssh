@@ -31,13 +31,14 @@ if [ ! -x "$GEN_APPCAST" ]; then
 fi
 
 echo "== Generating appcast over $DIST_DIR =="
-"$GEN_APPCAST" --download-url-prefix "$DOWNLOAD_PREFIX" "$DIST_DIR"
-
-# Point each update's "what's new" at the changelog so Sparkle's update prompt
-# shows release notes. (generate_appcast rewrites appcast.xml each run, so re-add.)
-/usr/bin/sed -i '' \
-  's#</sparkle:shortVersionString>#</sparkle:shortVersionString><sparkle:releaseNotesLink>https://paste2ssh.com/changelog/</sparkle:releaseNotesLink>#' \
-  "$DIST_DIR/appcast.xml"
+# Per-version release notes: author dist/Paste2SSH-<version>.html as a small HTML
+# snippet (no DOCTYPE/body tags) with just that version's notes; generate_appcast
+# embeds it inline as the update's <description>. A "Full Release Notes" link points
+# at the changelog. This keeps the in-app update prompt concise (no site chrome).
+"$GEN_APPCAST" --download-url-prefix "$DOWNLOAD_PREFIX" \
+  --embed-release-notes \
+  --full-release-notes-url "https://paste2ssh.com/changelog/" \
+  "$DIST_DIR"
 
 echo
 echo "Done. Publish to the site repo (paste2ssh.com) and push:"

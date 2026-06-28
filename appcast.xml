@@ -6,19 +6,33 @@
             <title>1.1.1</title>
             <pubDate>Sun, 28 Jun 2026 18:31:43 +0200</pubDate>
             <sparkle:version>4</sparkle:version>
-            <sparkle:shortVersionString>1.1.1</sparkle:shortVersionString><sparkle:releaseNotesLink>https://paste2ssh.com/changelog/</sparkle:releaseNotesLink>
+            <sparkle:shortVersionString>1.1.1</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
             <enclosure url="https://paste2ssh.com/Paste2SSH-1.1.1.dmg" length="1725232" type="application/octet-stream" sparkle:edSignature="vXdiEvbIN1sgmK8rogFIoDi5KAV0Oxq/6T5Isux3zl0+nrXFZwNGiry4c7m8tot2v6cbtTZPBcUP3KBBfqNGDg=="/>
             <sparkle:deltas>
                 <enclosure url="https://paste2ssh.com/Paste2SSH4-3.delta" sparkle:deltaFrom="3" length="11138" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977808" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="5MB8BNQTEL9zcWFW+8OdQrf03pjVpRxF0uIw/lpvlEX+5dG/2jm+NoqXiSySsyhKaTb69n+VPcDERGMt0PpwBw=="/>
             </sparkle:deltas>
+            <description><![CDATA[<style>
+  :root { color-scheme: light dark; }
+  .notes { font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif; font-size: 13px; line-height: 1.55; padding: 2px; }
+  .notes h2 { font-size: 15px; font-weight: 600; margin: 0 0 8px; }
+  .notes ul { margin: 0; padding-left: 18px; }
+  .notes li { margin-bottom: 6px; }
+</style>
+<div class="notes">
+  <h2>Version 1.1.1</h2>
+  <ul>
+    <li>The “update available” prompt now shows just the new version’s notes, instead of the whole changelog page.</li>
+  </ul>
+</div>
+]]></description>
         </item>
         <item>
             <title>1.1.0</title>
             <pubDate>Sun, 28 Jun 2026 18:16:47 +0200</pubDate>
             <sparkle:version>3</sparkle:version>
-            <sparkle:shortVersionString>1.1.0</sparkle:shortVersionString><sparkle:releaseNotesLink>https://paste2ssh.com/changelog/</sparkle:releaseNotesLink>
+            <sparkle:shortVersionString>1.1.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
             <enclosure url="https://paste2ssh.com/Paste2SSH-1.1.0.dmg" length="1725026" type="application/octet-stream" sparkle:edSignature="TpjY8H/am1rTQG3/z6nUt7Lw4ms0S42/GfGsHkUzE0v/tWF7YJtHe6brIa8VGtz9yWoOcmOpaX47I9dv1lY0CA=="/>
