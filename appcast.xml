@@ -3,6 +3,36 @@
     <channel>
         <title>Paste2SSH</title>
         <item>
+            <title>1.2.0</title>
+            <pubDate>Mon, 29 Jun 2026 10:31:01 +0200</pubDate>
+            <sparkle:fullReleaseNotesLink>https://paste2ssh.com/changelog/</sparkle:fullReleaseNotesLink>
+            <sparkle:version>6</sparkle:version>
+            <sparkle:shortVersionString>1.2.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description><![CDATA[<style>
+  :root { color-scheme: light dark; }
+  .notes { font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif; font-size: 13px; line-height: 1.55; padding: 2px; }
+  .notes h2 { font-size: 15px; font-weight: 600; margin: 0 0 8px; }
+  .notes ul { margin: 0; padding-left: 18px; }
+  .notes li { margin-bottom: 6px; }
+</style>
+<div class="notes">
+  <h2>Version 1.2.0</h2>
+  <ul>
+    <li>Uploads now go to <code>/tmp</code> on the server by default, which it clears on its own — so there's nothing to clean up.</li>
+    <li>The automatic remote-deletion setting has been removed (no longer needed). You can still set a custom remote folder per host.</li>
+  </ul>
+</div>
+]]></description>
+            <enclosure url="https://paste2ssh.com/Paste2SSH-1.2.0.dmg" length="1722919" type="application/octet-stream" sparkle:edSignature="Q/Ia/QYRh6SKOaH8qkdY9icJtlHvUZ/W8ECliwvWs1w2IMVLt9W/dXT0KrVn322qmpYEJTYIZ++zL6BvV6O5Cg=="/>
+            <sparkle:deltas>
+                <enclosure url="https://paste2ssh.com/Paste2SSH6-5.delta" sparkle:deltaFrom="5" length="106230" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977808" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="/DergFJ1wS9QoaoFDgpawNmFbpFyiQjx80KX6UEWHRkV54MJf0Ed2DwM200iTuKoEGYkgnrsQoqm7Ttnz9ALAQ=="/>
+                <enclosure url="https://paste2ssh.com/Paste2SSH6-4.delta" sparkle:deltaFrom="4" length="124314" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977808" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="4Hv5NFKMIEhfiG5PD3Bxx+0+xDHk6BHc3b/kze6YBSaShnKxHvZqJd4HbrtW3xGkUmwGV9tKkHj88AP0uPUfAg=="/>
+                <enclosure url="https://paste2ssh.com/Paste2SSH6-3.delta" sparkle:deltaFrom="3" length="124426" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977808" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="SpNCRII2NWvZkeyLl8Lv2p42Pm6oDuo0OWi91oqHV6s0ihB7X7kaLox9p5gcTWkLAbl9IFMGxmpap8lE/FKTAw=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
             <title>1.1.2</title>
             <pubDate>Sun, 28 Jun 2026 19:19:09 +0200</pubDate>
             <sparkle:fullReleaseNotesLink>https://paste2ssh.com/changelog/</sparkle:fullReleaseNotesLink>
@@ -55,15 +85,6 @@
   </ul>
 </div>
 ]]></description>
-        </item>
-        <item>
-            <title>1.1.0</title>
-            <pubDate>Sun, 28 Jun 2026 18:16:47 +0200</pubDate>
-            <sparkle:version>3</sparkle:version>
-            <sparkle:shortVersionString>1.1.0</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <enclosure url="https://paste2ssh.com/Paste2SSH-1.1.0.dmg" length="1725026" type="application/octet-stream" sparkle:edSignature="TpjY8H/am1rTQG3/z6nUt7Lw4ms0S42/GfGsHkUzE0v/tWF7YJtHe6brIa8VGtz9yWoOcmOpaX47I9dv1lY0CA=="/>
         </item>
     </channel>
 </rss>
